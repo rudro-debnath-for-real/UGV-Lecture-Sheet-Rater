@@ -1,0 +1,87 @@
+/* styles.css - with university colors and new emojis */
+.lecture-rating-widget {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 4px;
+    margin: 5px 0;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    align-items: center;
+}
+
+.rating-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    background: white;
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.rating-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(17, 69, 138, 0.2);
+    border-color: #11458A;
+}
+
+.rating-btn .rating-emoji {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.rating-btn .rating-label {
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* Color coding for each rating in the widget */
+.rating-btn[data-value="0"] .rating-emoji { color: #dc3545; }  /* Very Bad - Red */
+.rating-btn[data-value="1"] .rating-emoji { color: #fd7e14; }  /* Bad - Orange */
+.rating-btn[data-value="2"] .rating-emoji { color: #ffc107; }  /* Average - Yellow */
+.rating-btn[data-value="3"] .rating-emoji { color: #20c997; }  /* Good - Green */
+.rating-btn[data-value="4"] .rating-emoji { color: #17a2b8; }  /* Very Good - Teal */
+.rating-btn[data-value="5"] .rating-emoji { color: #007bff; }  /* Excellent - Blue */
+
+/* Selected state with university color */
+.rating-btn.selected {
+    border-color: #11458A;
+    background: #e8edf6;
+    box-shadow: 0 2px 8px rgba(17, 69, 138, 0.3);
+    transform: scale(1.05);
+    font-weight: 600;
+    color: #11458A;
+}
+
+.rating-btn.selected .rating-emoji {
+    transform: scale(1.2);
+}
+
+.rating-btn:hover .rating-label {
+    color: #11458A;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+    .rating-btn .rating-label {
+        display: none;
+    }
+    .rating-btn {
+        padding: 4px 8px;
+    }
+}
+
+/* Highlight effect when rating is being applied */
+.rating-highlight {
+    background: #e8edf6 !important;
+    border-left: 4px solid #11458A !important;
+    transition: background 0.5s;
+}

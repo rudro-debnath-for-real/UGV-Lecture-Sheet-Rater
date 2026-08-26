@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Batch Lecture Rater",
+  "version": "1.0",
+  "description": "Rate all lecture sheets at once with one click",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.youruniversity.edu/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Batch Rate Lectures",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youruniversity.edu/*lecture*",
+        "*://*.youruniversity.edu/*sheet*",
+        "<all_urls>"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
